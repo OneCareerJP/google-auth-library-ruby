@@ -81,7 +81,7 @@ module Google
           response = connection.post @token_exchange_endpoint, URI.encode_www_form(request_body), headers
 
           if response.status != 200
-            raise "Token exchange failed with status #{response.status}"
+            raise "Token exchange failed with status #{response.status}: #{response.body}"
           end
 
           MultiJson.load response.body
