@@ -147,7 +147,7 @@ module Google
           end
 
           if response.status != 200
-            raise "Service account impersonation failed with status #{response.status}"
+            raise "Service account impersonation failed with status #{response.status}: #{response.body}"
           end
 
           MultiJson.load response.body
